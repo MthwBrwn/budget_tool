@@ -1,9 +1,11 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
 class Budget(models.Model):
     """ This is the class Budget
     """
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='budgets')
     id = models.AutoField
     name = models.CharField(max_length=1028)
     total_budget = models.FloatField
@@ -23,6 +25,7 @@ class Budget(models.Model):
 class Transaction(models.Model):
     """ This is the class Transaction
     """
+    assigned_to = models.ForeignKey(User, on_delete=models.CASCADE, related_name='transactions', null=True, blank=True)
     id = models.AutoField
     budget = models.ForeignKey(Budget, on_delete=models.CASCADE, related_name='transactions')
     TRANSACTIONS = [
