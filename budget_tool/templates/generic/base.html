@@ -1,0 +1,14 @@
+{% load static %}
+Home
+{% if user.is_authenticated %}
+Budgets
+{% if user.is_superuser %}
+Admin
+{% endif %}
+Log Out
+{% else %}
+Sign Up
+{% endif %}
+{% block content %}
+No Content
+{% endblock content%}
