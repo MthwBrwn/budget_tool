@@ -28,9 +28,11 @@ class Transaction(models.Model):
     assigned_to = models.ForeignKey(User, on_delete=models.CASCADE, related_name='transactions', null=True, blank=True)
     id = models.AutoField
     budget = models.ForeignKey(Budget, on_delete=models.CASCADE, related_name='transactions')
-    TRANSACTIONS = [
-        (withdrawal, Withdrawal), (deposit, Deposit),
-    ]
+
+    TRANSACTIONS = (
+        ('withdrawal', 'Withdrawal'), ('deposit', 'Deposit'),
+    )
+
     amount = models.FloatField(default='deposit', choices=TRANSACTIONS)
     description = models.CharField(max_length=2056)
 
