@@ -42,4 +42,4 @@ class Transaction(models.Model):
     def __str__(self):
         """ str gives back basic information about the class objects
         """
-        return f'budget:  {self.budget},  Amount{self.amount}, Description: {self.description}'
+        return f'budget: {self.budget},  Amount: {self.amount}, Description: {self.description}'
