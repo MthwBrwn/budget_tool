@@ -3,7 +3,10 @@ from django.views.generic import ListView, DetailView
 from django.urls import reverse_lazy
 from .models import Budget, Transaction
 
+
 class BudgetView(LoginRequiredMixin, ListView):
+    """
+    """
     template_name = 'budget_list.html'
     context_object_name = 'budgets'
     login_url = reverse_lazy('login')
@@ -18,6 +21,8 @@ class BudgetView(LoginRequiredMixin, ListView):
 
 
 class TransactionView(LoginRequiredMixin, DetailView):
+    """
+    """
     template_name = 'transaction_detail.html'
     model = Transaction
     context_object_name = 'transactions'
@@ -25,4 +30,4 @@ class TransactionView(LoginRequiredMixin, DetailView):
     pk_url_kwarg = 'id'
 
     def get_queryset(self):
-        return Category.objects.filter(category__user__username=self.request.user.username)
+        return Transaction.objects.filter(category__user__username=self.request.user.username)

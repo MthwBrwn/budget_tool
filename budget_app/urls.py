@@ -6,7 +6,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('budget', BudgetView.as_view(), name='budget_view'),
     path('transaction/<int:id>', TransactionView.as_view(), name='transaction_detail'),
 ]
