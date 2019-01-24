@@ -8,7 +8,7 @@
   <h2>{{ budget }}</h2>
   {% for transaction in transactions %}
     {% if transaction.budget == budget %}
-    <p><a href="{% url "card_detail" id=transaction.id %}">{{ transaction.title }}</a></p>
+    <p><a href="{% url "transaction_detail" id=transaction.id %}">{{ transaction.title }}</a></p>
     {% endif %}
   {% endfor %}
 </div>
