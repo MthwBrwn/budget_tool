@@ -6,8 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-psycopg2 = "*"
 django = "*"
+coverage = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.6"

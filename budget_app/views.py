@@ -16,7 +16,7 @@ class BudgetView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['transactions'] = Transaction.objects.filter(category__user__username=self.request.user.username)
+        context['transactions'] = Transaction.objects.filter(budget__user__username=self.request.user.username)
         return context
 
 
@@ -30,4 +30,4 @@ class TransactionView(LoginRequiredMixin, DetailView):
     pk_url_kwarg = 'id'
 
     def get_queryset(self):
-        return Transaction.objects.filter(category__user__username=self.request.user.username)
+        return Transaction.objects.filter(budget__user__username=self.request.user.username)
